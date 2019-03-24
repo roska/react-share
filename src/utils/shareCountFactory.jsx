@@ -15,9 +15,9 @@ class SocialMediaShareCount extends Component {
     this.updateCount(this.props.url);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.url !== this.props.url) {
-      this.updateCount(nextProps.url);
+  componentDidUpdate(prevProps) {
+    if (this.props.url !== prevProps.url) {
+      this.updateCount(this.props.url);
     }
   }
 
@@ -66,6 +66,8 @@ SocialMediaShareCount.defaultProps = {
   children: shareCount => shareCount,
 };
 
+/* eslint-disable react/display-name */
 export default function shareCountFactory(getCount) {
   return props => <SocialMediaShareCount getCount={getCount} {...props} />;
 }
+/* eslint-enable react/display-name */
