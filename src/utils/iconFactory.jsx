@@ -6,6 +6,7 @@ export default function iconFactory(network, iconConfig) {
     const {
       className,
       iconBgStyle,
+      logoBgFillColor = iconConfig.color,
       logoFillColor,
       borderRadius,
       round,
@@ -33,14 +34,14 @@ export default function iconFactory(network, iconConfig) {
                 height="64"
                 rx={borderRadius}
                 ry={borderRadius}
-                fill={iconConfig.color}
+                fill={logoBgFillColor}
                 style={iconBgStyle} />
             ) : (
               <circle
                 cx="32"
                 cy="32"
                 r="31"
-                fill={iconConfig.color}
+                fill={logoBgFillColor}
                 style={iconBgStyle} />
             ))}
           </g>
@@ -56,6 +57,7 @@ export default function iconFactory(network, iconConfig) {
   Icon.propTypes = {
     className: PropTypes.string,
     iconBgStyle: PropTypes.object,
+    logoBgFillColor: PropTypes.string,
     logoFillColor: PropTypes.string,
     round: PropTypes.bool,
     size: PropTypes.number,
